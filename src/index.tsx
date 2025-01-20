@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import { StrictMode } from 'react';
 import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
+import { Buffer } from 'buffer';
+globalThis.Buffer = Buffer;
 
 import { Root } from '@/components/Root.tsx';
 import { EnvUnsupported } from '@/components/EnvUnsupported.tsx';
@@ -11,8 +13,6 @@ import './index.css';
 
 // Mock the environment in case, we are outside Telegram.
 import './mockEnv.ts';
-import { Buffer } from 'buffer';
-globalThis.Buffer = Buffer;
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 

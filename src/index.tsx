@@ -11,6 +11,8 @@ import './index.css';
 
 // Mock the environment in case, we are outside Telegram.
 import './mockEnv.ts';
+import { Buffer } from 'buffer';
+globalThis.Buffer = Buffer;
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 

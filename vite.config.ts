@@ -11,6 +11,11 @@ export default defineConfig({
     tsconfigPaths(),
     process.env.HTTPS && mkcert(),
   ],
+  resolve: {
+    alias: {
+      buffer: 'buffer',
+    },
+  },
   optimizeDeps: {
     esbuildOptions: {
       define: {

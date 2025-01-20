@@ -38,7 +38,7 @@ export const CustomAuthPage: FC = () => {
     }
     const userName = initDataState.user?.username || "";
     const loginDetails = await torusdirectsdk.getTorusKey(
-      "test-telegram_mini_app",
+      "test-telegram-mini-app",
       userName,
       { verifier_id: userName },
       btoa(initDataRaw || ""),

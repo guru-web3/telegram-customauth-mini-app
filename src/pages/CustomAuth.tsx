@@ -4,6 +4,7 @@ import { List, Placeholder, Button } from '@telegram-apps/telegram-ui';
 import { DisplayData, type DisplayDataRow } from '@/components/DisplayData/DisplayData.tsx';
 import { Page } from '@/components/Page.tsx';
 import { CustomAuth } from '@toruslabs/customauth';
+import ReactJsonView from "react-json-view";
 
 function getUserRows(user: User): DisplayDataRow[] {
   return [
@@ -129,17 +130,19 @@ export const CustomAuthPage: FC = () => {
   return (
     <Page>
       <List>
+      {loginDetailsResponse && (
+          <ReactJsonView
+            src={loginDetailsResponse} style={{ textAlign: "left" }} 
+            // rows={[{ title: 'loginDetails', value: JSON.stringify(loginDetailsResponse) }]}
+          />
+        )}
+        {!loginDetailsResponse && (
+        <Button onClick={loginWithWeb3auth}>Login with Web3Auth</Button>
+      )}
         <DisplayData header={'Init Data'} rows={initDataRows}/>
         {userRows && <DisplayData header={'User'} rows={userRows}/>}
         {receiverRows && <DisplayData header={'Receiver'} rows={receiverRows}/>}
         {chatRows && <DisplayData header={'Chat'} rows={chatRows}/>}
-        <Button onClick={loginWithWeb3auth}>Login with Web3Auth</Button>
-        {loginDetailsResponse && (
-          <DisplayData
-            header="Web3Auth Response"
-            rows={[{ title: 'loginDetails', value: JSON.stringify(loginDetailsResponse) }]}
-          />
-        )}
       </List>
     </Page>
   );

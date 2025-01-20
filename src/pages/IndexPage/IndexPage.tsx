@@ -30,6 +30,9 @@ export const IndexPage: FC = () => {
           <Link to="/init-data">
             <Cell subtitle="User data, chat information, technical data">Init Data</Cell>
           </Link>
+          <Link to="/customauth">
+            <Cell subtitle="Telegram Mini application with custom auth">Custom Auth integration</Cell>
+          </Link>
           <Link to="/launch-params">
             <Cell subtitle="Platform identifier, Mini Apps version, etc.">Launch Parameters</Cell>
           </Link>

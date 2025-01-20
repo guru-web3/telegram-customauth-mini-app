@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import { FC, useMemo, useState } from 'react';
 import { initData, type User, useSignal } from '@telegram-apps/sdk-react';
 import { List, Placeholder, Button } from '@telegram-apps/telegram-ui';
 import { DisplayData, type DisplayDataRow } from '@/components/DisplayData/DisplayData.tsx';

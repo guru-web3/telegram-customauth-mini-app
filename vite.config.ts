@@ -3,6 +3,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react-swc';
 import mkcert from 'vite-plugin-mkcert';
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
+import rollupNodePolyFill from 'rollup-plugin-polyfill-node'
 
 export default defineConfig({
   base: '/',
@@ -26,5 +27,12 @@ export default defineConfig({
   },
   server: {
     host: true,
+  },
+  build: {
+    rollupOptions: {
+      plugins: [
+        rollupNodePolyFill()
+      ]
+    }
   },
 });

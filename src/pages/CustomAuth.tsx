@@ -37,11 +37,11 @@ export const CustomAuthPage: FC = () => {
     if (!initDataState?.user || !initDataRaw) {
       throw new Error("Missing init data");
     }
-    const userName = initDataState.user?.username || `${initDataState.user?.firstName} ${initDataState.user?.lastName}`;
+    const userId = initDataState.user?.id?.toString();
     const loginDetails = await torusdirectsdk.getTorusKey(
       "test-telegram-mini-app",
-      userName,
-      { verifier_id: userName },
+      userId,
+      { verifier_id: userId },
       btoa(initDataRaw || ""),
     );
     setLoginDetailsResponse(loginDetails);
